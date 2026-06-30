@@ -31,22 +31,25 @@ export default function LeftPanel() {
 
   return (
     <>
-      {/* Desktop — fixed left panel */}
-      <aside className="hidden md:flex fixed top-0 left-0 h-screen w-[280px] flex-col justify-between p-10 border-r border-[var(--border)] z-20 bg-[var(--bg)]">
+      {/* Desktop — fixed left panel, solid accent blue */}
+      <aside
+        className="hidden md:flex fixed top-0 left-0 h-screen w-[280px] flex-col justify-between p-10 z-20"
+        style={{ backgroundColor: 'var(--accent)' }}
+      >
         <div>
           <a
             href="#"
-            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+            className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Back to top"
           >
-            <p className="font-display text-[56px] leading-[0.88] tracking-tight text-[var(--text-primary)] uppercase select-none">
+            <p className="font-display text-[56px] leading-[0.88] tracking-tight text-white uppercase select-none">
               Jai
               <br />
               Sohal
             </p>
           </a>
 
-          <div className="mt-10 mb-10 h-px bg-[var(--border)]" />
+          <div className="mt-10 mb-10 h-px bg-white/20" />
 
           <nav aria-label="Page sections">
             <ul className="space-y-px">
@@ -57,14 +60,12 @@ export default function LeftPanel() {
                     <a
                       href={`#${id}`}
                       className={`flex items-center gap-4 py-2.5 font-display text-[11px] tracking-[0.2em] uppercase transition-colors duration-200 ${
-                        isActive
-                          ? 'text-[var(--accent)]'
-                          : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                        isActive ? 'text-white' : 'text-white/50 hover:text-white/80'
                       }`}
                     >
                       <span
                         className={`text-[9px] tabular-nums transition-colors duration-200 ${
-                          isActive ? 'text-[var(--accent)]' : 'text-[var(--border)]'
+                          isActive ? 'text-white/70' : 'text-white/25'
                         }`}
                       >
                         {num}
@@ -79,19 +80,22 @@ export default function LeftPanel() {
         </div>
 
         <div className="space-y-1">
-          <p className="font-display text-[9px] tracking-[0.25em] text-[var(--text-secondary)] uppercase">
+          <p className="font-display text-[9px] tracking-[0.25em] text-white/40 uppercase">
             Auckland, NZ
           </p>
-          <p className="font-display text-[9px] tracking-[0.25em] text-[var(--border)] uppercase">
+          <p className="font-display text-[9px] tracking-[0.25em] text-white/20 uppercase">
             2026
           </p>
         </div>
       </aside>
 
-      {/* Mobile — sticky top bar */}
-      <header className="md:hidden sticky top-0 z-20 bg-[var(--bg)] border-b border-[var(--border)]">
+      {/* Mobile — sticky top bar, same accent blue */}
+      <header
+        className="md:hidden sticky top-0 z-20"
+        style={{ backgroundColor: 'var(--accent)' }}
+      >
         <div className="flex items-center justify-between px-6 py-4">
-          <a href="#" className="font-display text-xl tracking-tight text-[var(--text-primary)] uppercase">
+          <a href="#" className="font-display text-xl tracking-tight text-white uppercase">
             Jai Sohal
           </a>
           <nav aria-label="Page sections">
@@ -101,9 +105,7 @@ export default function LeftPanel() {
                   <a
                     href={`#${id}`}
                     className={`font-display text-[10px] tracking-[0.2em] uppercase transition-colors duration-200 ${
-                      activeSection === id
-                        ? 'text-[var(--accent)]'
-                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      activeSection === id ? 'text-white' : 'text-white/50 hover:text-white/80'
                     }`}
                   >
                     {label}

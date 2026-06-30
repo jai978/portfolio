@@ -8,13 +8,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#0C0F16',
-        surface: '#151923',
-        border: '#1E2535',
-        primary: '#E9E6DF',
-        secondary: '#6B7385',
-        accent: '#3B6FD4',
-        'accent-dim': '#1A3A7A',
+        bg: '#07090F',
+        surface: '#0E1320',
+        border: '#182030',
+        primary: '#F0EDE6',
+        secondary: '#6A7D98',
+        accent: '#1C3EC4',
+        'accent-light': '#5578FF',
+        warm: '#F0B83C',
+        'warm-dim': '#6B5018',
       },
       fontFamily: {
         display: ['var(--font-oswald)', 'Arial Narrow', 'sans-serif'],

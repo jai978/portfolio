@@ -8,43 +8,35 @@ export default function Projects({ projects }: { projects: Project[] }) {
       aria-label="Work"
     >
       <div className="flex items-center gap-4 mb-14">
-        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--accent)] uppercase">02</span>
+        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--warm)] uppercase">02</span>
         <span className="font-display text-[9px] tracking-[0.25em] text-[var(--text-secondary)] uppercase">Work</span>
         <div className="h-px flex-1 bg-[var(--border)]" aria-hidden="true" />
       </div>
 
-      {/* Grid: first card full-width, rest fill 2-col rows */}
       <div className="grid grid-cols-1 md:grid-cols-2 border-l border-t border-[var(--border)]">
         {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            featured={index === 0}
-          />
+          <ProjectCard key={project.id} project={project} featured={index === 0} />
         ))}
       </div>
     </section>
   )
 }
 
-function ProjectCard({
-  project,
-  featured,
-}: {
-  project: Project
-  featured: boolean
-}) {
+function ProjectCard({ project, featured }: { project: Project; featured: boolean }) {
   return (
     <article
-      className={`group relative border-r border-b border-[var(--border)] p-8 transition-colors duration-200 hover:bg-[var(--surface)] ${
+      className={`group relative border-r border-b border-[var(--border)] p-8 transition-all duration-200 hover:bg-[var(--surface)] ${
         featured ? 'md:col-span-2' : ''
       }`}
     >
-      {/* Top row: status badge + external link */}
+      {/* Accent line — appears on hover */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-[var(--accent-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+
+      {/* Top row */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
           {project.status === 'live' && (
-            <span className="font-display text-[9px] tracking-[0.2em] text-[var(--accent)] border border-[var(--accent-dim)] px-2 py-0.5 uppercase">
+            <span className="font-display text-[9px] tracking-[0.2em] text-[var(--warm)] border border-[var(--warm-dim)] px-2 py-0.5 uppercase">
               Live
             </span>
           )}
@@ -59,7 +51,7 @@ function ProjectCard({
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display text-xs text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-200"
+            className="font-display text-sm text-[var(--text-secondary)] hover:text-[var(--warm)] transition-colors duration-200"
             aria-label={`Visit ${project.name}`}
           >
             ↗
@@ -68,12 +60,12 @@ function ProjectCard({
       </div>
 
       {/* Name */}
-      <h2 className="font-display text-2xl md:text-3xl tracking-tight text-[var(--text-primary)] uppercase mb-3 transition-colors duration-200 group-hover:text-[var(--accent)]">
+      <h2 className="font-display text-2xl md:text-3xl tracking-tight text-[var(--text-primary)] uppercase mb-3 transition-colors duration-200 group-hover:text-[var(--accent-light)]">
         {project.name}
       </h2>
 
-      {/* Problem — voice-forward */}
-      <p className="font-body text-sm text-[var(--accent)] italic mb-5 leading-relaxed">
+      {/* Problem — warm accent */}
+      <p className="font-body text-sm text-[var(--warm)] italic mb-5 leading-relaxed">
         {project.problem}
       </p>
 

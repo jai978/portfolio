@@ -13,7 +13,7 @@ export default function Contact({ content }: { content: ContactContent }) {
       aria-label="Contact"
     >
       <div className="flex items-center gap-4 mb-14">
-        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--accent)] uppercase">03</span>
+        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--warm)] uppercase">03</span>
         <span className="font-display text-[9px] tracking-[0.25em] text-[var(--text-secondary)] uppercase">Contact</span>
         <div className="h-px flex-1 bg-[var(--border)]" aria-hidden="true" />
       </div>
@@ -25,7 +25,7 @@ export default function Contact({ content }: { content: ContactContent }) {
 
         <a
           href={`mailto:${content.email}`}
-          className="block font-display text-xl tracking-tight text-[var(--text-primary)] uppercase mb-10 transition-colors duration-200 hover:text-[var(--accent)]"
+          className="block font-display text-xl tracking-tight text-[var(--text-primary)] uppercase mb-10 transition-colors duration-200 hover:text-[var(--warm)]"
         >
           {content.email}
         </a>

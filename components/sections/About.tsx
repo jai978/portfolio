@@ -10,7 +10,7 @@ export default function About({ content }: { content: AboutContent }) {
       aria-label="About"
     >
       <div className="flex items-center gap-4 mb-14">
-        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--accent)] uppercase">01</span>
+        <span className="font-display text-[9px] tracking-[0.25em] text-[var(--warm)] uppercase">01</span>
         <span className="font-display text-[9px] tracking-[0.25em] text-[var(--text-secondary)] uppercase">About</span>
         <div className="h-px flex-1 bg-[var(--border)]" aria-hidden="true" />
       </div>
