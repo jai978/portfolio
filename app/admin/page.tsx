@@ -55,6 +55,7 @@ export default function AdminPage() {
     const newProject: Project = {
       id: `project-${Date.now()}`,
       name: '',
+      year: '',
       problem: '',
       approach: '',
       stack: [],
@@ -160,12 +161,12 @@ export default function AdminPage() {
                 }
               />
             </Field>
-            <Field label="Sub-line">
+            <Field label="Currently building">
               <input
                 type="text"
-                value={content.hero.sub}
+                value={content.hero.currentlyBuilding}
                 onChange={(e) =>
-                  setContent({ ...content, hero: { ...content.hero, sub: e.target.value } })
+                  setContent({ ...content, hero: { ...content.hero, currentlyBuilding: e.target.value } })
                 }
               />
             </Field>
@@ -217,6 +218,13 @@ export default function AdminPage() {
                     type="text"
                     value={project.name}
                     onChange={(e) => updateProject(i, 'name', e.target.value)}
+                  />
+                </Field>
+                <Field label="Year (e.g. 2025 or 2023 →)">
+                  <input
+                    type="text"
+                    value={project.year}
+                    onChange={(e) => updateProject(i, 'year', e.target.value)}
                   />
                 </Field>
                 <Field label="Problem (one line, italic on site)">

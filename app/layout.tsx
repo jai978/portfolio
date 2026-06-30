@@ -1,18 +1,25 @@
 import type { Metadata } from 'next'
-import { Oswald, Quattrocento } from 'next/font/google'
+import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const oswald = Oswald({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-oswald',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
   display: 'swap',
 })
 
-const quattrocento = Quattrocento({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-quattrocento',
+  weight: ['400', '500'],
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -28,7 +35,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${oswald.variable} ${quattrocento.variable}`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   )

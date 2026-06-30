@@ -1,35 +1,54 @@
 interface HeroContent {
   positioning: string
-  sub: string
+  currentlyBuilding: string
 }
 
 export default function Hero({ content }: { content: HeroContent }) {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center px-10 md:px-16 py-24"
+      className="min-h-screen flex flex-col justify-center px-10 md:px-14 py-24"
       aria-label="Introduction"
     >
-      <div className="max-w-2xl">
-        <p className="font-display text-[10px] tracking-[0.35em] text-[var(--warm)] uppercase mb-10">
-          Portfolio — 2026
-        </p>
-
-        <h1 className="font-body text-[clamp(2.75rem,7vw,5.5rem)] leading-[1.08] text-[var(--text-primary)] mb-8">
-          {content.positioning}
+      <div className="max-w-lg">
+        {/* Name */}
+        <h1 className="font-display font-semibold text-[28px] md:text-[34px] tracking-tight text-[var(--text-primary)] mb-3">
+          Jai Sohal
         </h1>
 
-        <p className="font-body text-xl leading-relaxed text-[var(--text-secondary)] mb-14 max-w-md">
-          {content.sub}
+        {/* Hairline */}
+        <div className="h-px w-full bg-[var(--border)] mb-6" aria-hidden="true" />
+
+        {/* Positioning */}
+        <p className="font-body text-[17px] leading-relaxed text-[var(--text-primary)] mb-10">
+          {content.positioning}
         </p>
 
-        <a
-          href="#about"
-          className="inline-flex items-center gap-3 font-display text-[11px] tracking-[0.2em] uppercase text-[var(--text-primary)] border-b border-[var(--border)] pb-1 transition-colors duration-200 hover:text-[var(--warm)] hover:border-[var(--warm)]"
-        >
-          See the work
-          <span aria-hidden="true">↓</span>
-        </a>
+        {/* Currently building — log entry style */}
+        <div className="inline-flex items-start gap-3 border border-[var(--border)] bg-[var(--surface)] px-4 py-3 mb-12">
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[var(--signal)] flex-shrink-0 mt-[5px]"
+            aria-hidden="true"
+          />
+          <div>
+            <p className="font-mono text-[10px] text-[var(--text-secondary)] uppercase tracking-widest mb-0.5">
+              Currently building
+            </p>
+            <p className="font-mono text-[11px] text-[var(--text-primary)]">
+              {content.currentlyBuilding}
+            </p>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div>
+          <a
+            href="#work"
+            className="font-mono text-[11px] text-[var(--text-secondary)] tracking-wide hover:text-[var(--text-primary)] transition-colors duration-150 border-b border-[var(--border)] pb-px"
+          >
+            view build log →
+          </a>
+        </div>
       </div>
     </section>
   )

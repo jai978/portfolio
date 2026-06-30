@@ -3,15 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --bg: #07090F;
-  --surface: #0E1320;
-  --border: #182030;
-  --text-primary: #F0EDE6;
-  --text-secondary: #6A7D98;
-  --accent: #1C3EC4;
-  --accent-light: #5578FF;
-  --warm: #F0B83C;
-  --warm-dim: #6B5018;
+  --bg: #EDF1F3;
+  --surface: #FFFFFF;
+  --border: rgba(92, 107, 115, 0.18);
+  --border-solid: #5C6B73;
+  --text-primary: #14213D;
+  --text-secondary: #5C6B73;
+  --signal: #FFB703;
+  --signal-bg: rgba(255, 183, 3, 0.08);
 }
 
 html {
@@ -19,42 +18,44 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  * {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+  html { scroll-behavior: auto; }
+  .timeline-entry {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
 body {
   background-color: var(--bg);
   color: var(--text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-solid); opacity: 0.3; }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--text-primary);
   outline-offset: 3px;
-  border-radius: 0;
 }
 
 ::selection {
-  background-color: var(--accent-dim);
+  background-color: var(--signal);
   color: var(--text-primary);
+}
+
+/* Timeline entry scroll reveal */
+.timeline-entry {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.timeline-entry.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -1,6 +1,7 @@
 export interface Project {
   id: string
   name: string
+  year: string
   problem: string
   approach: string
   stack: string[]
@@ -16,7 +17,7 @@ export interface ContactLink {
 export interface SiteContent {
   hero: {
     positioning: string
-    sub: string
+    currentlyBuilding: string
   }
   about: {
     body: string

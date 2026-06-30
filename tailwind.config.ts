@@ -8,19 +8,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#07090F',
-        surface: '#0E1320',
-        border: '#182030',
-        primary: '#F0EDE6',
-        secondary: '#6A7D98',
-        accent: '#1C3EC4',
-        'accent-light': '#5578FF',
-        warm: '#F0B83C',
-        'warm-dim': '#6B5018',
+        bg: '#EDF1F3',
+        surface: '#FFFFFF',
+        'text-primary': '#14213D',
+        'text-secondary': '#5C6B73',
+        signal: '#FFB703',
       },
       fontFamily: {
-        display: ['var(--font-oswald)', 'Arial Narrow', 'sans-serif'],
-        body: ['var(--font-quattrocento)', 'Georgia', 'serif'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
     },
   },
